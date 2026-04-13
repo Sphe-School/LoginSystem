@@ -25,7 +25,7 @@ public class MainT1 {
         String registrationMessage = loginSystem.registerUser(username, password, cellPhone);
         System.out.println(registrationMessage);
 
-        // Only continue to login if registration was successful
+        
         if (registrationMessage.equals("User has been registered")) {
 
             System.out.println("\n--- Login ---");
