@@ -1,25 +1,25 @@
 public class LoginSystem {
 
-    // now we going to store the users registered details (Variables)//
+    
     private String registeredUsername;
     private String registeredPassword;
     private String registeredCellPhoneNumber;
     private String firstName;
     private String lastName;
 
-    // Constructor This runs when I make the object//
-    public LoginSystem(String firstName, String lastName) { //Make a login object and store first name and last name inside it//
+
+    public LoginSystem(String firstName, String lastName) { 
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    // Now i check username//
+    
     public boolean checkUsername(String username) {
         return username.contains("_") && username.length() <= 5;
     }
-    // Now we check the password//
+   
     public boolean checkPasswordComplexity(String password) {
-        boolean hasUppercase = false; // these start as false then the loop will check each character 1 by 1//
+        boolean hasUppercase = false; 
         boolean hasNumber = false;
         boolean hasSpecial = false;
 
@@ -37,18 +37,18 @@ public class LoginSystem {
             if (Character.isDigit(ch)) {
                 hasNumber = true;
             }
-            if (!Character.isLetterOrDigit(ch)) { //if it is NOT a letter and NOT a digit, then it is special//
+            if (!Character.isLetterOrDigit(ch)) { 
                 hasSpecial = true;
             }
 
         }
-        return hasUppercase && hasNumber && hasSpecial; // This is for password passes only if all are true.//
+        return hasUppercase && hasNumber && hasSpecial; 
     }
-    // here we gonna check the cell number it must start wit +27//
+ 
     public boolean checkCellPhoneNumber(String cellPhoneNumber) {
         return cellPhoneNumber.matches("^\\+27\\d{9}$");
     }
-    //register user and return the correct message//
+    
     public String registerUser(String username, String password, String cellPhoneNumber) {
         if (!checkUsername(username)) {
             return "User name not rigt; please have an underscore(_) and is not more than 5 characters in lenght";
@@ -65,11 +65,11 @@ public class LoginSystem {
 
         return "User is registered";
     }
-    // checking login details//
+  
     public boolean loginUser(String username, String password) {
         return username.equals(registeredUsername) && password.equals(registeredPassword);
     }
-    // final login message//
+   
     public String returnLoginStaus(boolean loginSuccess) {
         if (loginSuccess) {
             return "Hello " + firstName + ", " + lastName + "good to see you again";
